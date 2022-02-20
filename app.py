@@ -242,6 +242,7 @@ id = []
 
 
 @app.route("/Home")
+@app.route("/")
 def HomePage():
     loginSuccess = ""
     channelName = ""
