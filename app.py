@@ -529,7 +529,7 @@ def MakeChannel():
                 return redirect(url_for('MakeChannel'))
                 #return render_template("HomePage.html", CreateChannel="False")
 
-        return redirect(url_for('HomePage'))
+
 
 
 
