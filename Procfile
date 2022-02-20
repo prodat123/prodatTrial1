@@ -1,1 +1,1 @@
-web: gunicorn app:Prodat
+web: gunicorn app:app
