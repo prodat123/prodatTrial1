@@ -1,7 +1,6 @@
 import time
 import random
 import mysql.connector
-# import sqlite3
 from Person import Person
 from News import News
 from flask import Flask, redirect, url_for, render_template, request
@@ -167,54 +166,7 @@ teacher1 = Person('11520133', 'Benny', 0, 0, 'teacher', 'benny', '101010', '', '
 
 # insert_person("People", student1.ID, student1.Name, student1.CreditPoints, student1.DetentionCounter, student1.Role, student1.Username, student1.Password, student1.Image)
 # insert_person(student2.ID, student2.Name, student2.CreditPoints, student2.DetentionCounter, student2.Role, student2.Username, student2.Password, student2.Image, student2.Channel)
-def load_video(self, *args):
-    ret, frame = self.capture.read()
-    self.image_frame = frame
-    buffer = cv2.flip(frame, 0).tobytes()
-    # texture = Texture.create(size=(frame.shape[1], frame.shape[0]), colorfmt='bgr')
-    # texture.blit_buffer(buffer, colorfmt='bgr', bufferfmt='ubyte')
-    # self.image.texture = texture
 
-    # camOn = True
-    # while camOn == True:
-
-    studentIndex = 0
-    for code in decode(frame):
-
-        while code.data.decode('utf-8') not in people[studentIndex]:
-            if studentIndex <= len(people):
-                studentIndex += 1
-            else:
-                continue
-
-
-        else:
-            print("Approved. You are a student of SISPIK. You can enter!")
-
-            # print("Student number:" + students[studentIndex][0] + "\nName:" + students[studentIndex][
-            #     1] + "\nCredit Points:" + str(students[studentIndex][2]) + "\nRole:" + students[studentIndex][
-            #           3])
-            self.root.current = "StudentInfoPage"
-            self.root.ids.StudentScanWindow.ids.ID_information.text = "Student number: " + self.newPeople[studentIndex][
-                0] + "\nName: " + self.newPeople[studentIndex][1] + "\nCredit Points: " + str(
-                self.newPeople[studentIndex][2]) + "\nDetention Counter: " + str(
-                self.newPeople[studentIndex][3]) + "\nRole:" + \
-                                                                      self.newPeople[studentIndex][4]
-            self.root.ids.StudentScanWindow.ids.profileImage.source = self.newPeople[studentIndex][7]
-
-            print("complete")
-
-            self.root.ids.barcodeScanWindow.remove_widget(self.image)
-
-            # printData()
-
-            # studentIndex = 0
-            time.sleep(3)
-
-    cv2.imshow('barcode scanner', frame)
-    cv2.waitKey(1)
-
-    # cv2.destroyWindow('barcode scanner')
 
 
 print(people)
