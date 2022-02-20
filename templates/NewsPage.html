@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/News.css')}}">
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+</head>
+    <body>
+        <script src="{{url_for('static', filename='Javascript/javascript.js')}}"></script>
+
+        <ul>
+            <li><a class="active" href="#">News</a></li>
+            <li><a href="{{url_for('HomePage')}}">Home</a></li>
+        </ul>
+        <header>NEWS</header>
+        <form action="/NewsPage" method="POST">
+            {% for x in range(0, news) %}
+                {% set count = "like" + x|string %}
+
+                <button type="submit" class="newsButton" name="NewsButton" value="{{x}}">
+                    <div class="publisherName"><h4>Posted by {{publisher[x][0]}}</h4></div>
+                    <div class="newsDate">{{newsDate[x][0]}}</div>
+                    <div class="NewsHeading"><h2>{{heading[x][0]}}</h2></div>
+                    <div class="newsBody">{{content[x][0]}}</div>
+                </button>
+
+
+                {% set commentBoxID = "comment" + x|string %}
+                <input type="button" class="commentButton" name="CommentButton" id="CommentButton" onclick="clickOnComment({{commentBoxID}})">
+
+                <button type="submit" style="border: none; outline: none; background-color: #FFFFFF" value={{count}} name='NewsButton'><div class="likeButton"></div></button>
+
+                <label style="font-size: 24px">{{likes[x][0]}}</label>
+
+                <div class="commentBoxContainer" id="{{commentBoxID}}">
+                    <input class="commentBox" type="text" placeholder="Comment something...">
+                </div>
+
+
+            {% endfor %}
+            <meta http-equiv="refresh" content="15">
+        </form>
+
+        <br>
+
+        <a href="{{ url_for('MakeNews')}}" class="newsButton">+</a>
+
+
+    </body>
+</html>

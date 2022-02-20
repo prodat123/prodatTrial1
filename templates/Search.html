@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/search.css')}}">
+</head>
+<body>
+    <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search usernames...">
+
+    <ol id="list">
+        {% for names in people %}
+            <li class="usernames">
+                <div class="usernameDiv">{{names[0]}}</div>
+                <button class="friendButton">Friend</button>
+
+            </li>
+        {% endfor %}
+
+    </ol>
+
+    <script src="{{url_for('static', filename='Javascript/Search.js')}}"></script>
+
+</body>
+</html>

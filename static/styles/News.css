@@ -1,0 +1,134 @@
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li  {
+   float: right;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.commentBox{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    box-sizing: border-box;
+}
+
+.commentBox:focus{
+    border: 3px solid #555
+}
+
+.newsButton{
+    position: relative;
+    background: #193C40;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-decoration: none;
+    margin: 3px 0px;
+    cursor: pointer;
+    width: 100%;
+    height: 200px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.newsButton:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.publisherName{
+    position: absolute;
+    bottom: 160px;
+    left: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #FFFFFF;
+    width: auto;
+}
+
+.newsDate{
+    position: absolute;
+    bottom: 158px;
+    left: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #FFFFFF;
+    width: auto;
+}
+
+.NewsHeading{
+    position: absolute;
+    bottom: 110px;
+    left: 30px
+    font-size: 24px;
+    text-decoration: none;
+    color: #FFFFFF;
+    width: auto;
+}
+
+.newsBody{
+    position: absolute;
+    bottom: 90px;
+    left: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #FFFFFF;
+    width: auto;
+}
+
+.commentBoxContainer{
+    display: none;
+
+}
+
+.commentButton{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 100px 100px 100px 30px;
+}
+
+.likeButton{
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #F2D6BD;
+}
+
+.likeButton:hover{
+    cursor: pointer;
+}
+
+.likeButton:active{
+    border-bottom: 30px solid #F23C13;
+}

@@ -1,0 +1,45 @@
+input[type=text]{
+    width: 70%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus{
+    background-color: #ddd;
+    outline: none;
+}
+
+
+#list{
+    font-size: 1.5em;
+    margin-left: 15px;
+}
+
+.animals{
+    display: list-item;
+}
+
+.usernameDiv{
+    padding: 10px;
+}
+
+.friendButton{
+    position: relative;
+    display: none;
+    bottom: 30px;
+    left: 90%;
+    width: 30px;
+    height: 30px;
+}
+
+.usernameDiv:hover{
+    background-color: #ccc;
+}
+
+.usernameDiv:hover + .friendButton{
+    display: block;
+
+}

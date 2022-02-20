@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css')}}">
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <header>SIGN IN</header>
+    <form action="SignUpPage" method="POST" enctype="multipart/form-data">
+        <h3>ID:</h3>
+        <input name="ID" type="text">
+        <h3>Name:</h3>
+        <input name="Name" type="text">
+        <h3>Username:</h3>
+        <input name="Username" type="text">
+        <h3>Password:</h3>
+        <input name="Password" type="text">
+
+        <h3>Profile Image</h3>
+        <input name="ProfileImage" type="file" class="form-control">
+        <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+</html>

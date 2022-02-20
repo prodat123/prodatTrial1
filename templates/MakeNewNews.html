@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/MakeNews.css')}}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="modal">
+        <form class="modal-content"action="/MakeNews" method="POST">
+            <div class="container">
+                <h1>Make News</h1>
+                <hr>
+                <label for="Heading"><b>Title</b></label>
+                <input type="text" name="Heading" required>
+                <label for="Content"><b>Body</b></label><br>
+                <textarea style="font-family: Arial;" maxlength="250" rows="6" cols="7" name="Content" class="contentText"></textarea>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" value="Submit" class="postbtn">Post</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

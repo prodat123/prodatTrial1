@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css')}}">
+    <meta name="viewport" content="width=device-width, intital-scale=1.0">
+
+    <title>Title</title>
+
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <script src="{{url_for('static', filename='Javascript/HomePageJavascript.js')}}"></script>
+
+
+    <div id="id01" class="modal">
+
+      <form class="modal-content animate" action="SignUpPage" method="POST">
+
+          <div class="imgcontainer">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <label><h2>SIGN UP</h2></label>
+              <img src="img_avatar2.png" alt="Avatar" class="avatar">
+          </div>
+
+            <div class="container">
+                <label for="ID"><b>ID</b></label>
+                <input type="text" placeholder="Enter ID" name="ID" required>
+                <br><br>
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Name" name="name" required>
+                <br><br>
+                <input type="radio" name="occupation" value="student"required>
+                <label for="student"><b>Student</b></label>
+                <input type="radio" name="occupation" value="teacher" required>
+                <label for="teacher"><b>Teacher</b></label><br><br>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+                <br><br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Sign Up</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="id02" class="modal">
+
+      <form class="modal-content animate" action="JoinChannel" method="POST">
+
+          <div class="imgcontainer">
+              <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <label><h2>CHANNEL</h2></label>
+          </div>
+
+            <div class="container">
+                <label for="Channel"><b>Channel</b></label>
+                <input type="text" placeholder="Enter Channel Code" name="Channel" required>
+
+                <button type="submit">Join</button>
+                <h4 id="CheckChannel"></h4>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+      </form>
+    </div>
+    <script>
+    {% if channelExists == True %}
+        document.getElementById('id02').style.display='none'
+    {% elif channelExists == False %}
+        document.getElementById('id02').style.display='block'
+
+
+        document.getElementById('CheckChannel').innerHTML = "This channel does not exist"
+
+
+    {% endif %}
+    </script>
+    <div id="id03" class="modal">
+
+      <form class="modal-content animate" action="SignInPage" method="POST">
+
+          <div class="imgcontainer">
+              <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <label><h2>SIGN IN</h2></label>
+          </div>
+
+            <div class="container">
+                <label for="Username"><b>Username</b></label>
+                <input type="text" placeholder="Username" name="Username" required>
+                <label for="Password"><b>Password</b></label>
+                <input type="password" placeholder="Password" name="Password" required>
+
+                <button type="submit">Sign In</button>
+                <h4 id="Check"></h4>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+      </form>
+    </div>
+
+    <div id="id04" class="modal">
+
+      <form class="modal-content animate" action="MakeChannel" method="POST">
+
+          <div class="imgcontainer">
+              <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <label><h2>CHANNEL</h2></label>
+          </div>
+
+            <div class="container">
+                <label><b>Channel Code</b></label>
+                <label>{{channel}}</label>
+
+                <button type="submit">Make Channel</button>
+                <h4 id="CheckOccupation"></h4>
+            </div>
+
+
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+      </form>
+    </div>
+    <script>
+        {% if CreateChannel == "False" %}
+            document.getElementById("id04").style.display = "block";
+            document.getElementById("CheckOccupation").innerHTML = "You need to be a teacher";
+        {% elif CreateChannel == "True" %}
+            document.getElementById("id04").style.display = "none";
+            document.getELementById("CheckOccupation").innerHTML = "You are a teacher";
+        {% endif %}
+    </script>
+
+
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto; float: right;">Join Channel</button>
+    <button onclick="document.getElementById('id03').style.display='block'" style="width:auto; float: right; right: 100px;" id="SignInButton">Sign In</button>
+    <script>
+        {% if loginSuccess == "True" %}
+            document.getElementById("SignInButton").style.display = "none"
+            document.getElementById("profile").style.display = "block"
+        {% elif loginSuccess == "False" %}
+            document.getElementById("profile").style.display = "none"
+        {% endif %}
+    </script>
+    <a class="channelCode" href="{{url_for('PeopleList')}}"><b>{{roomName}}</b></a>
+    <button onclick="document.getElementById('id04').style.display='block'" style="width:auto;" style="float: right;">Make Channel</button>
+    <script>
+    {% if loginSuccess == "True" %}
+        document.getElementById('id03').style.display='none'
+    {% elif loginSuccess == "False"%}
+        document.getElementById('id03').style.display='block'
+
+        {% if usernameError == True %}
+            document.getElementById('Check').innerHTML = "This username does not exist"
+        {% endif %}
+        {% if psdError == True %}
+            document.getElementById('Check').innerHTML = "This is the wrong password"
+        {% endif %}
+    {% endif %}
+    </script>
+
+
+    <button id="profile" class="profileButton" onclick="onSignUpButtonClick();">{{username}}</button>
+    <form action="Home" method="POST">
+        <div id="ProfileOptions" class="profileContainer">
+            <ul style="background-color: #FFFFFF">
+                <li style="float: left;"><a class="profileOptionButton" href= "{{ url_for('AccountPage') }}">Check Profile</a></li>
+                <li style="float: left;"><button class="profileOptionButton" type="submit">Sign Out</button></li>
+            </ul>
+        </div>
+    </form>
+    <script>
+        {% if signedOut == "True" %}
+            document.getElementById("profile").style.display = "none"
+        {% endif %}
+    </script>
+    <ul>
+        <li><a class="active" href="{{url_for('NewsPage')}}">News</a></li>
+        <li><a href="#home">Home</a></li>
+    </ul>
+    <header>HOME</header>
+    <div class="homePageBox" style="top: 80px;">
+        <button onclick="document.getElementById('id01').style.display='block'" class="signUpButton" style="-ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">Sign Up</button>
+    </div>
+    <div class="homePageBox" style="background-color:Blue; top: 180px;">
+        <h3 style="float:right;">CHECK OUT THE LATEST NEWS IN PRODAT!</h3>
+        <a class="homePageButton" style="vertical-align:middle; left: 70%; top: 30%;" href="{{url_for('NewsPage')}}"><span>News</span></a>
+        <div class="iconBox" style="bottom: 100px"></div>
+    </div>
+    <div class="homePageBox" style="background-color:Blue; top: 280px;">
+        <h3 style="float:left;">Use Prodat's unique profiling system!</h3>
+        <button class="homePageButton" style="vertical-align:middle; right: 30%; top: 30%;"><span>Profile</span></button>
+        <div class="iconBox" style="bottom: 100px; left: 60%;"></div>
+    </div>
+
+
+
+</body>
+</html>
