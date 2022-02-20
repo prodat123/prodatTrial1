@@ -5,7 +5,7 @@ from News import News
 from flask import Flask, redirect, url_for, render_template, request
 
 import string
-import cv2
+# import cv2
 from pyzbar.pyzbar import decode
 import datetime
 
