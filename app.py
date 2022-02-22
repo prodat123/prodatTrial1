@@ -265,19 +265,20 @@ def HomePage():
             loginSuccess = "True"
             signedOut = "False"
 
-            print(channel)
             if row_count == 0:
                 channelName = " "
+                joinedChannel = False
             else:
                 channelName = channel[0][0]
                 HomePage.channel = channel[0][0]
+                joinedChannel = True
 
         else:
             print("logged out")
             signedOut = "True"
 
     return render_template("HomePage.html", username=username[0].capitalize(), loginSuccess=loginSuccess,
-                           signedOut=signedOut, roomName=channelName)
+                           signedOut=signedOut, roomName=channelName, joinedChannel=joinedChannel)
 
 
 @app.route("/NewsPage/", methods=['POST', 'GET'])
@@ -622,4 +623,4 @@ def Search():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run()
